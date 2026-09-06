@@ -1,0 +1,233 @@
+BL51 BANKED LINKER/LOCATER V6.22                                                        09/05/2026  23:39:04  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.22, INVOKED BY:
+C:\KEIL\C51\BIN\BL51.EXE main.obj TO template RAMSIZE (256)
+
+
+MEMORY MODEL: SMALL
+
+
+INPUT MODULES INCLUDED:
+  main.obj (MAIN)
+  C:\KEIL\C51\LIB\C51S.LIB (?C_STARTUP)
+  C:\KEIL\C51\LIB\C51S.LIB (?C_INIT)
+
+
+LINK MAP OF MODULE:  template (MAIN)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+            DATA    0008H     0002H     UNIT         ?DT?MAIN
+                    000AH     0016H                  *** GAP ***
+            BIT     0020H.0   0000H.1   UNIT         ?BI?MAIN
+                    0020H.1   0000H.7                *** GAP ***
+            IDATA   0021H     0001H     UNIT         ?STACK
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0003H     ABSOLUTE     
+                    0003H     07FDH                  *** GAP ***
+            CODE    0800H     008CH     UNIT         ?C_C51STARTUP
+            CODE    088CH     0060H     UNIT         ?PR?KEY_SCAN?MAIN
+            CODE    08ECH     0025H     UNIT         ?PR?MOTOR_REVERSE?MAIN
+            CODE    0911H     0021H     UNIT         ?PR?MOTOR_FORWARD?MAIN
+            CODE    0932H     001EH     UNIT         ?PR?_DELAY?MAIN
+            CODE    0950H     0019H     UNIT         ?PR?MAIN?MAIN
+            CODE    0969H     0007H     UNIT         ?C_INITSEG
+
+
+
+OVERLAY MAP OF MODULE:   template (MAIN)
+
+
+SEGMENT
+  +--> CALLED SEGMENT
+---------------------
+?C_C51STARTUP
+  +--> ?PR?MAIN?MAIN
+  +--> ?C_INITSEG
+
+?PR?MAIN?MAIN
+  +--> ?PR?KEY_SCAN?MAIN
+  +--> ?PR?MOTOR_FORWARD?MAIN
+  +--> ?PR?MOTOR_REVERSE?MAIN
+
+?PR?KEY_SCAN?MAIN
+  +--> ?PR?_DELAY?MAIN
+
+BL51 BANKED LINKER/LOCATER V6.22                                                      09/05/2026  23:39:04  PAGE 2
+
+
+?PR?MOTOR_FORWARD?MAIN
+  +--> ?PR?_DELAY?MAIN
+
+?PR?MOTOR_REVERSE?MAIN
+  +--> ?PR?_DELAY?MAIN
+
+
+
+SYMBOL TABLE OF MODULE:  template (MAIN)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        MAIN
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  D:0090H         PUBLIC        P1
+  B:0090H.0       PUBLIC        MOTOA
+  B:0090H.1       PUBLIC        MOTOB
+  D:00B0H         PUBLIC        P3
+  B:0090H.2       PUBLIC        MOTOC
+  B:0090H.3       PUBLIC        MOTOD
+  D:00A8H         PUBLIC        IE
+  C:0911H         PUBLIC        motor_forward
+  C:0945H         PUBLIC        _delay
+  C:08ECH         PUBLIC        motor_reverse
+  D:00B8H         PUBLIC        IP
+  C:0950H         PUBLIC        main
+  D:0098H         PUBLIC        SCON
+  D:0088H         PUBLIC        TCON
+  B:0020H.0       PUBLIC        direction
+  C:088CH         PUBLIC        key_scan
+  D:00C8H         PUBLIC        T2CON
+  D:0008H         PUBLIC        SPEED
+  D:00D0H         PUBLIC        PSW
+  B:00B0H.0       PUBLIC        K1
+  B:00B0H.1       PUBLIC        K2
+  B:00B0H.2       PUBLIC        K3
+  C:093DH         SYMBOL        L?0028
+  C:0941H         SYMBOL        L?0029
+  -------         PROC          L?0027
+  -------         ENDPROC       L?0027
+  C:093DH         SYMBOL        L?0028
+  C:0941H         SYMBOL        L?0029
+  -------         PROC          _DELAY
+  D:0006H         SYMBOL        i
+  C:0945H         LINE#         65
+  C:0945H         LINE#         66
+  C:0945H         LINE#         67
+  C:094FH         LINE#         68
+  -------         ENDPROC       _DELAY
+  -------         PROC          MOTOR_FORWARD
+  C:0911H         LINE#         75
+  C:0911H         LINE#         76
+  C:0911H         LINE#         77
+  C:0913H         LINE#         78
+  C:0915H         LINE#         79
+  C:0915H         LINE#         80
+BL51 BANKED LINKER/LOCATER V6.22                                                      09/05/2026  23:39:04  PAGE 3
+
+
+  C:0915H         LINE#         81
+  C:0918H         LINE#         83
+  C:091AH         LINE#         84
+  C:091CH         LINE#         85
+  C:091EH         LINE#         86
+  C:0920H         LINE#         87
+  C:0920H         LINE#         89
+  C:0920H         LINE#         90
+  C:0920H         LINE#         91
+  C:0920H         LINE#         92
+  C:0920H         LINE#         93
+  C:0923H         LINE#         95
+  C:0925H         LINE#         96
+  C:0927H         LINE#         97
+  C:0929H         LINE#         98
+  C:092BH         LINE#         99
+  -------         ENDPROC       MOTOR_FORWARD
+  -------         PROC          MOTOR_REVERSE
+  C:08ECH         LINE#         107
+  C:08ECH         LINE#         108
+  C:08ECH         LINE#         109
+  C:08EEH         LINE#         110
+  C:08F0H         LINE#         111
+  C:08F2H         LINE#         112
+  C:08F4H         LINE#         113
+  C:08F4H         LINE#         115
+  C:08F4H         LINE#         116
+  C:08F4H         LINE#         117
+  C:08F4H         LINE#         118
+  C:08F4H         LINE#         119
+  C:08F7H         LINE#         121
+  C:08F9H         LINE#         122
+  C:08FBH         LINE#         123
+  C:08FDH         LINE#         124
+  C:08FFH         LINE#         125
+  C:0902H         LINE#         127
+  C:0904H         LINE#         128
+  C:0906H         LINE#         129
+  C:0908H         LINE#         130
+  C:090AH         LINE#         131
+  -------         ENDPROC       MOTOR_REVERSE
+  -------         PROC          KEY_SCAN
+  C:088CH         LINE#         139
+  C:088CH         LINE#         140
+  C:088CH         LINE#         143
+  C:088FH         LINE#         144
+  C:088FH         LINE#         145
+  C:0896H         LINE#         147
+  C:0899H         LINE#         148
+  C:0899H         LINE#         149
+  C:089BH         LINE#         151
+  C:089EH         LINE#         152
+  C:089EH         LINE#         153
+  C:089EH         LINE#         158
+  C:08A1H         LINE#         159
+  C:08A1H         LINE#         160
+  C:08A8H         LINE#         162
+BL51 BANKED LINKER/LOCATER V6.22                                                      09/05/2026  23:39:04  PAGE 4
+
+
+  C:08ABH         LINE#         163
+  C:08ABH         LINE#         169
+  C:08B6H         LINE#         170
+  C:08B6H         LINE#         171
+  C:08C2H         LINE#         172
+  C:08C2H         LINE#         174
+  C:08C5H         LINE#         175
+  C:08C5H         LINE#         176
+  C:08C5H         LINE#         181
+  C:08C8H         LINE#         182
+  C:08C8H         LINE#         183
+  C:08CFH         LINE#         185
+  C:08D2H         LINE#         186
+  C:08D2H         LINE#         192
+  C:08DDH         LINE#         193
+  C:08DDH         LINE#         194
+  C:08E8H         LINE#         195
+  C:08E8H         LINE#         197
+  C:08EBH         LINE#         198
+  C:08EBH         LINE#         199
+  C:08EBH         LINE#         200
+  -------         ENDPROC       KEY_SCAN
+  -------         PROC          MAIN
+  C:0950H         LINE#         206
+  C:0950H         LINE#         207
+  C:0950H         LINE#         211
+  C:0953H         LINE#         219
+  C:0955H         LINE#         220
+  C:0957H         LINE#         221
+  C:0959H         LINE#         224
+  C:0959H         LINE#         225
+  C:0959H         LINE#         229
+  C:095CH         LINE#         235
+  C:095FH         LINE#         236
+  C:095FH         LINE#         237
+  C:0962H         LINE#         238
+  C:0964H         LINE#         240
+  C:0964H         LINE#         241
+  C:0967H         LINE#         242
+  C:0967H         LINE#         243
+  -------         ENDPROC       MAIN
+  -------         ENDMOD        MAIN
+
+******************************************************************************
+* RESTRICTED VERSION WITH 0800H BYTE CODE SIZE LIMIT; USED: 00E3H BYTE (11%) *
+******************************************************************************
+
+Program Size: data=11.1 xdata=0 code=371
+LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)
