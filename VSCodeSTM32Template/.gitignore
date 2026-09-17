@@ -1,3 +1,30 @@
-build
+# CMake
+build/
+cmake-build-*/
+
+CMakeCache.txt
+CMakeFiles/
+cmake_install.cmake
+compile_commands.json
+
+
+# STM32 build output
+*.elf
+*.hex
+*.bin
+*.map
+*.list
+
+
+# STM32 VSCode extension
+.settings/*
+!.settings/ide.store.json
+
+
+# CubeMX temporary
 mx.scratch
-!.settings
+
+
+# OS
+.DS_Store
+Thumbs.db
