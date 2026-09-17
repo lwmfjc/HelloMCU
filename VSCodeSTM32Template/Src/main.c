@@ -9,6 +9,8 @@ int main(void) {
   // 将IOPAEN位置1，即开启GPIOA时钟
   //
   // RCC->APB2ENR |= RCC_APB2ENR_IOPAEN; //开启GPIOA时钟
+  //00xxxxxxxxxx100
+  //| bit2  | **IOPAEN**       | GPIOA 时钟使能  | 
   RCC->APB2ENR = 0x00000004; // 直接操作寄存器方式
 
   // 2. 配置PA0引脚模式
