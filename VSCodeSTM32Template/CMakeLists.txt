@@ -18,7 +18,8 @@ project(VSCodeSTM32Template)
 # Enable CMake support for ASM and C/CPP languages
 enable_language(C ASM)
 
-set(PROJECT_NAME VSCodeSTM32Template)
+#这行自动生成的，有点冗余
+#set(PROJECT_NAME VSCodeSTM32Template)
 
 # Create an executable object type
 add_executable(${PROJECT_NAME})
