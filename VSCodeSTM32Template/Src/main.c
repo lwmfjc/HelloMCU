@@ -48,10 +48,9 @@ int main(void) {
   // PA0输出高电平时LED点亮
   //
   // 关闭LED
-    GPIOA->ODR &= ~(1 << 0);
- // GPIOA->ODR |= (1 << 0); // 灯亮
+  GPIOA->ODR &= ~(1 << 0);
+  // GPIOA->ODR |= (1 << 0); // 灯亮
 
   while (1) {
-    
   }
 }
